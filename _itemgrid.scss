@@ -1,0 +1,55 @@
+// WORK HTML PAGE
+#work-section {
+  padding: 40px 0px;
+  img {
+    width: 100%;
+  }
+  .item-image {
+    transition: all 500ms;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .item {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+      &-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #ffffff;
+        transform: translateY(-200%);
+        font-weight: 900;
+        transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+      }
+    }
+    .item::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $main-color;
+      opacity: 0.9;
+      transform: scale(2) translate(-100%, -100%) rotate(-28deg);
+      transition: all 3s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .item:hover {
+      .item-image {
+        transform: scale(1.2);
+      }
+      .item-text {
+        transform: translateY(-60%);
+        z-index: 50;
+      }
+    }
+
+    .item:hover::after {
+      transform: scale(2) translate(0, 0) rotate(-28deg);
+    }
+  }
+}

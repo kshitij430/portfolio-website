@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/3cc1015340.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="./mobile.css" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Kshitij Gajbhiye</title>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header id="about-header">
+        <div class="container">
+          <nav>
+            <a href="./index.html"> <img class="logo" src="./kg.png" alt="IMAGE NOT FOUND" /></a>
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="work.html">WORK</a></li>
+              <li><a href="blog.html" class="current">BLOGS</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- POSTS SECTION -->
+
+      <section id="posts">
+        <a href="dateTime.html">
+          <div id="post-one">
+            <div id="image"></div>
+            <div id="inner">
+              <h1>DOM Manipulation</h1>
+              <h6 id="post-one-date"></h6>
+            </div>
+          </div>
+        </a>
+      </section>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- To Inherit Footer and Head -->
+    <script>
+      const postOne = document.getElementById("post-one-date");
+      const formatDate = function (dt) {
+        const now = new Date(dt);
+        const conf = {
+          day: "numeric",
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+        };
+        return new Intl.DateTimeFormat("en-US", conf).format(now);
+      };
+      const postOneDate = new Date("8 mar 5:30 pm 2021");
+      console.log(formatDate(postOneDate));
+      postOne.textContent = formatDate(postOneDate);
+      $(function () {
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </body>
+</html>
